@@ -223,40 +223,29 @@ export default function CreateTexCart() {
                         {activFaz == index && (
                             <>
                                 <input type="text" value={nameFaza} onChange={(e) => setNameFaza(e.target.value)} placeholder="Название фазы" ></input>
-                                <p>Этапы фазы</p>
+                                <p>Описание задачи</p>
                                 <div className="textdisc">
                                     <EditorToolbar />
                                     <ReactQuill value={textDisc}
                                         onChange={(value) => setTextDisc(value)}
                                         theme="snow"
-                                        placeholder={"Опишите этапы фазы"}
+                                        placeholder={"Опишите задачу"}
                                         modules={modules}
                                         formats={formats}
                                     />
                                 </div>
-                                <p>Компоненты</p>
+                                <p>Шаги выполнения</p>
                                 <div className="selectKomponents">
                                     {Object.keys(selektComponent).map((component, index) => (
                                         <div className="selektComp" key={index}>
                                             <div className="comp">
                                                 <BsTrash3 className='DellComp' onClick={() => dellComp(index)} />
-                                                <Select
-                                                    options={options}
-                                                    isSearchable={true}
-                                                    onChange={(selectedOption) => selektComp(index, selectedOption.value)}
-                                                    className="custom-select"
-                                                    classNamePrefix="custom-select"
-                                                    placeholder="Компонент"
-                                                    defaultValue={selektComponent[index].name != "" ? { value: selektComponent[index].name, label: selektComponent[index].name } : false}
-                                                />
-                                                <input className='ves' type="text" value={selektComponent[index].colvo} onChange={(e) => selektVes(index, e.target.value)} placeholder="Вес" ></input>
+                                                <input className='ves' type="text" value={selektComponent[index].colvo} onChange={(e) => selektVes(index, e.target.value)} placeholder="Этап задачи" ></input>
                                             </div>
                                         </div>
                                     ))}
                                 </div>
                                 <AiOutlinePlusCircle className='AddComp' onClick={addComp} />
-                                <p>Температура</p>
-                                <input className='ves' type="text" value={temp} onChange={(e) => setTemp(e.target.value)} placeholder="Температура" ></input>
                                 <p>Остальные параметры</p>
                                 <div className="otherParms">
                                     {Object.keys(otherParms).map((component, index) => (
@@ -280,7 +269,7 @@ export default function CreateTexCart() {
                             <>
                                 <div className="stats">
                                     <div className="name" >{texCart[id].name}</div>
-                                    <div className="cplvoComp">Всего компонентов - {texCart[id].components.length}</div>
+                                    <div className="cplvoComp">Всего шагов - {texCart[id].components.length}</div>
                                 </div>
                                 <GiSettingsKnobs className='SettingsFaz' onClick={() => sellectActivFaze(id)} />
                             </>
