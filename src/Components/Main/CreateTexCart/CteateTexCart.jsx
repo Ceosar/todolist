@@ -1,65 +1,57 @@
 import React, { useState, useEffect } from 'react'
-import "./CreateTexCart.scss"
+import "./Createtask.scss"
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import Select from 'react-select';
 import { AiOutlinePlusCircle } from 'react-icons/ai'
 import EditorToolbar, { modules, formats } from "./Editortoobar.jsx";
 import { BsTrash3 } from 'react-icons/Bs';
 import { GiSettingsKnobs } from 'react-icons/gi'
 
-export default function CreateTexCart() {
+export default function Createtask() {
 
-    const options = [
-        { value: 'option1', label: 'Option 1' },
-        { value: 'option2', label: 'Option 2' },
-        { value: 'option3', label: 'Option 3' },
-    ];
-
-    const [texCart, setTexCart] = useState({});
-    const [activFaz, setActivFaz] = useState(-1);
-    const [nameFaza, setNameFaza] = useState('');
+    const [task, settask] = useState({});
+    const [activTask, setactivTask] = useState(-1);
+    const [nameTask, setnameTask] = useState('');
     const [textDisc, setTextDisc] = useState('');
-    const [selektComponent, setSelektComponent] = useState({});
-    const [temp, setTemp] = useState("");
+    const [selektEtaps, setselektEtaps] = useState({});
     const [otherParms, setOtherParms] = useState({});
 
 
-    const saveActivFaze = (id, flag = true) => {
+    const saveactivTaske = (id, flag = true) => {
         if (flag) {
-            setActivFaz(-1)
+            setactivTask(-1)
         }
-        let newtexCart = { ...texCart };
-        newtexCart[id].name = nameFaza;
-        newtexCart[id].podFaz[0].description = textDisc;
+        let newtask = { ...task };
+        newtask[id].name = nameTask;
+        newtask[id].podFaz[0].description = textDisc;
         let newComponents = []
-        for (let value in selektComponent) {
-            newComponents.push({ "name": selektComponent[value].name, "colvo": selektComponent[value].colvo })
+        for (let value in selektEtaps) {
+            newComponents.push({ "name": selektEtaps[value].name, "colvo": selektEtaps[value].colvo })
         }
-        newtexCart[id].components = newComponents
+        newtask[id].components = newComponents
         if (temp != '') {
-            newtexCart[id].parms.temp = temp
+            newtask[id].parms.temp = temp
         }
 
         let newParms = []
         for (let value in otherParms) {
             newParms.push(otherParms[value])
         }
-        newtexCart[id].parms.other = newParms
+        newtask[id].parms.other = newParms
 
 
-        setTexCart(newtexCart);
+        settask(newtask);
     };
 
-    const sellectActivFaze = (id) => {
-        if (activFaz !== -1) {
-            saveActivFaze(activFaz, false);
+    const sellectactivTaske = (id) => {
+        if (activTask !== -1) {
+            saveactivTaske(activTask, false);
         }
-        setActivFaz(id);
-        setNameFaza(texCart[id].name);
-        setTextDisc(texCart[id].podFaz[0].description);
+        setactivTask(id);
+        setnameTask(task[id].name);
+        setTextDisc(task[id].podFaz[0].description);
         let newComponents = {}
-        texCart[id].components.map((value, index) => {
+        task[id].components.map((value, index) => {
             newComponents[index] = value
         })
         if (Object.keys(newComponents).length == 0) {
@@ -73,7 +65,7 @@ export default function CreateTexCart() {
 
         let newParms = {}
 
-        texCart[id].parms.other.map((value, index) => {
+        task[id].parms.other.map((value, index) => {
             newParms[index] = value
         })
 
@@ -83,16 +75,16 @@ export default function CreateTexCart() {
             }
         }
 
-        setTemp(texCart[id].parms.temp)
+        setTemp(task[id].parms.temp)
 
-        setSelektComponent(newComponents)
+        setselektEtaps(newComponents)
 
         setOtherParms(newParms)
     };
 
     const addFaze = () => {
-        let newtexCart = { ...texCart };
-        newtexCart[Object.keys(newtexCart).length] = {
+        let newtask = { ...task };
+        newtask[Object.keys(newtask).length] = {
             "name": "Новая задача",
             "podFaz": [
                 {
@@ -106,16 +98,16 @@ export default function CreateTexCart() {
                 ]
             }
         };
-        setTexCart(newtexCart);
+        settask(newtask);
     };
 
     const addComp = () => {
-        let newComponent = { ...selektComponent };
+        let newComponent = { ...selektEtaps };
         newComponent[Object.keys(newComponent).length] = {
             "name": "",
             "colvo": ""
         };
-        setSelektComponent(newComponent);
+        setselektEtaps(newComponent);
     };
 
     const addParm = () => {
@@ -127,30 +119,30 @@ export default function CreateTexCart() {
 
 
     const dellFaze = (id) => {
-        let newtexCart = {};
-        setActivFaz(-1);
-        for (let key in texCart) {
-            if (texCart.hasOwnProperty(key)) {
-                const index = Object.keys(texCart).indexOf(key);
+        let newtask = {};
+        setactivTask(-1);
+        for (let key in task) {
+            if (task.hasOwnProperty(key)) {
+                const index = Object.keys(task).indexOf(key);
                 if (index !== id) {
-                    newtexCart[Object.keys(newtexCart).length] = texCart[key];
+                    newtask[Object.keys(newtask).length] = task[key];
                 }
             }
         }
-        setTexCart(newtexCart);
+        settask(newtask);
     };
 
     const dellComp = (id) => {
-        let newselektComponent = {};
-        for (let key in selektComponent) {
-            if (selektComponent.hasOwnProperty(key)) {
-                const index = Object.keys(selektComponent).indexOf(key);
+        let newselektEtaps = {};
+        for (let key in selektEtaps) {
+            if (selektEtaps.hasOwnProperty(key)) {
+                const index = Object.keys(selektEtaps).indexOf(key);
                 if (index !== id) {
-                    newselektComponent[Object.keys(newselektComponent).length] = selektComponent[key];
+                    newselektEtaps[Object.keys(newselektEtaps).length] = selektEtaps[key];
                 }
             }
         }
-        setSelektComponent(newselektComponent);
+        setselektEtaps(newselektEtaps);
     };
 
     const dellParm = (id) => {
@@ -179,26 +171,26 @@ export default function CreateTexCart() {
         const data = event.dataTransfer.getData('text/plain');
         const draggedIndex = parseInt(data);
         if (draggedIndex !== newIndex) {
-            const newTexCart = Object.values(texCart).map((item, index) => {
-                if (index === draggedIndex) return texCart[newIndex];
-                if (index === newIndex) return texCart[draggedIndex];
+            const newtask = Object.values(task).map((item, index) => {
+                if (index === draggedIndex) return task[newIndex];
+                if (index === newIndex) return task[draggedIndex];
                 return item;
             });
-            setTexCart(Object.fromEntries(newTexCart.map((item, index) => [index, item])));
+            settask(Object.fromEntries(newtask.map((item, index) => [index, item])));
         }
     };
 
 
     const selektComp = (id, item) => {
-        let oldCOmp = { ...selektComponent }
+        let oldCOmp = { ...selektEtaps }
         oldCOmp[id].name = item
-        setSelektComponent(oldCOmp)
+        setselektEtaps(oldCOmp)
     }
 
     const selektVes = (id, ves) => {
-        let oldCOmp = { ...selektComponent }
+        let oldCOmp = { ...selektEtaps }
         oldCOmp[id].colvo = ves
-        setSelektComponent(oldCOmp)
+        setselektEtaps(oldCOmp)
     }
 
     const selektParm = (id, parm) => {
@@ -210,19 +202,19 @@ export default function CreateTexCart() {
     return (
         <>
             <div className='add-contaner'>
-                {Object.keys(texCart).map((id, index) => (
+                {Object.keys(task).map((id, index) => (
 
                     <div
-                        className={'faza ' + (activFaz == index ? "active" : "")}
+                        className={'faza ' + (activTask == index ? "active" : "")}
                         key={index}
-                        draggable={activFaz == index ? "false" : "true"}
+                        draggable={activTask == index ? "false" : "true"}
                         onDragStart={(e) => handleDragStart(e, index)}
                         onDragOver={(e) => handleDragOver(e)}
                         onDrop={(e) => handleDrop(e, index)}
                     >
-                        {activFaz == index && (
+                        {activTask == index && (
                             <>
-                                <input type="text" value={nameFaza} onChange={(e) => setNameFaza(e.target.value)} placeholder="Название фазы" ></input>
+                                <input type="text" value={nameTask} onChange={(e) => setnameTask(e.target.value)} placeholder="Название фазы" ></input>
                                 <p>Описание задачи</p>
                                 <div className="textdisc">
                                     <EditorToolbar />
@@ -236,11 +228,11 @@ export default function CreateTexCart() {
                                 </div>
                                 <p>Шаги выполнения</p>
                                 <div className="selectKomponents">
-                                    {Object.keys(selektComponent).map((component, index) => (
+                                    {Object.keys(selektEtaps).map((component, index) => (
                                         <div className="selektComp" key={index}>
                                             <div className="comp">
                                                 <BsTrash3 className='DellComp' onClick={() => dellComp(index)} />
-                                                <input className='ves' type="text" value={selektComponent[index].colvo} onChange={(e) => selektVes(index, e.target.value)} placeholder="Этап задачи" ></input>
+                                                <input className='ves' type="text" value={selektEtaps[index].colvo} onChange={(e) => selektVes(index, e.target.value)} placeholder="Этап задачи" ></input>
                                             </div>
                                         </div>
                                     ))}
@@ -259,19 +251,19 @@ export default function CreateTexCart() {
                                 </div>
                                 <AiOutlinePlusCircle className='AddComp' onClick={addParm} />
                                 <div className="butns">
-                                    <button className='save-btn' onClick={() => saveActivFaze(index)}>Сохранить</button>
+                                    <button className='save-btn' onClick={() => saveactivTaske(index)}>Сохранить</button>
                                     <button className='del-btn  ' onClick={() => dellFaze(index)}>Удалить</button>
                                 </div>
 
                             </>
                         )}
-                        {activFaz != index && (
+                        {activTask != index && (
                             <>
                                 <div className="stats">
-                                    <div className="name" >{texCart[id].name}</div>
-                                    <div className="cplvoComp">Всего шагов - {texCart[id].components.length}</div>
+                                    <div className="name" >{task[id].name}</div>
+                                    <div className="cplvoComp">Всего шагов - {task[id].components.length}</div>
                                 </div>
-                                <GiSettingsKnobs className='SettingsFaz' onClick={() => sellectActivFaze(id)} />
+                                <GiSettingsKnobs className='SettingsFaz' onClick={() => sellectactivTaske(id)} />
                             </>
                         )}
                     </div>

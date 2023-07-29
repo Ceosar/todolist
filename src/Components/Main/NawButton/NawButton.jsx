@@ -12,7 +12,6 @@ export default function NawButton() {
         <div className="NawButtons">
             <NavLink className="zad" to={`zad/`}>Задачи</NavLink>
             <NavLink className="add" to={`add/`}>Добавить</NavLink>
-            <NavLink className="texCarts" to={`texCarts/`}>Тех.карты</NavLink>
         </div>
     )
 }
