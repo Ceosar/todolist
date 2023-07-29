@@ -3,7 +3,6 @@ import "./CreateTexCart.scss"
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import Select from 'react-select';
-import dataJson from './data.json'
 import { AiOutlinePlusCircle } from 'react-icons/ai'
 import EditorToolbar, { modules, formats } from "./Editortoobar.jsx";
 import { BsTrash3 } from 'react-icons/Bs';
@@ -17,7 +16,7 @@ export default function CreateTexCart() {
         { value: 'option3', label: 'Option 3' },
     ];
 
-    const [texCart, setTexCart] = useState(dataJson);
+    const [texCart, setTexCart] = useState({});
     const [activFaz, setActivFaz] = useState(-1);
     const [nameFaza, setNameFaza] = useState('');
     const [textDisc, setTextDisc] = useState('');
@@ -94,7 +93,7 @@ export default function CreateTexCart() {
     const addFaze = () => {
         let newtexCart = { ...texCart };
         newtexCart[Object.keys(newtexCart).length] = {
-            "name": "Новая фаза",
+            "name": "Новая задача",
             "podFaz": [
                 {
                     "description": ""
