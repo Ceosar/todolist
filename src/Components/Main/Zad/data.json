@@ -1,0 +1,6 @@
+[
+    {"title": "Рецепт 1", "status" : "ok"},
+    {"title": "Рецепт 2", "status" : "error"},
+    {"title": "Рецепт 3", "status" : "work"},
+    {"title": "Рецепт 4", "status" : "nowork"}
+]

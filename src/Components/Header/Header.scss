@@ -1,0 +1,40 @@
+@import '../../Constants.scss';
+
+.header-contaner {
+    height: 120px;
+    border-bottom: 2px solid $main-font-color;
+    font-size: $main-font-size;
+    color: #FFF;
+    font-family: $main-font;
+    font-size: $main-font-size;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    .logo {
+        position: absolute;
+        top: $header-top;
+        left: $header-marg;
+
+        path {
+            fill: $main-font-color;
+        }
+    }
+
+    .name {
+        position: absolute;
+        top: $header-top;
+        margin-right: 50px;
+        right: $header-marg + 300px;
+        color:$main-font-color;
+    }
+
+    .loginOut {
+        position: absolute;
+        top: $header-top;
+        right: $header-marg + 40px;
+        margin-right: 200px;
+        color:$main-font-color;
+    }
+
+}

@@ -1,0 +1,13 @@
+@import '../../Constants.scss';
+
+
+.main-contaner {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: $main-font-size;
+    font-family: $main-font;
+    padding: 0px 150px;
+    margin-bottom: 100px;
+
+}

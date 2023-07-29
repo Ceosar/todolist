@@ -1,0 +1,51 @@
+@import '../../../Constants.scss';
+
+
+.resept {
+    border-radius: 30px;
+    padding: 40px 20px;
+    margin-top: 70px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: row;
+    background-color: $main-font-color;
+
+    .icon {
+        height: 50px;
+        width: 50px;
+        margin-right: 40px;
+        fill: $primary-color;
+        stroke-width: 1px; 
+        
+
+        &.ok {
+            fill: #6BFF35;;
+        }
+
+        &.error{
+            fill: #FF7474;
+        }
+
+        &.work {
+            fill: #FFB72B;
+        }
+
+    }
+
+    .text {
+
+        display: flex;
+        justify-content: left;
+        flex-direction: column;
+
+        .title {
+            color: $primary-color;
+        }
+
+        .status {
+            color: $primary-color;
+            font-size: $second-font-size;
+        }
+    }
+}

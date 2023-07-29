@@ -1,0 +1,11 @@
+@import 'constants';
+
+
+
+body {
+  background-color: $primary-color;
+  margin: 0;
+  padding: 0;
+  color: $main-font-color ;
+  z-index: 0;
+}
