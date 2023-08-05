@@ -71,7 +71,6 @@ const routerLoginFalse = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <ThemeSwitcher />
     <RouterProvider router={userLogin ? routerLoginTrue : routerLoginFalse} />
   </React.StrictMode>,
 )

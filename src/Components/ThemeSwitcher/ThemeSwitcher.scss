@@ -2,41 +2,59 @@
 
 .theme-switcher {
     // position: absolute;
-    // margin-top: 20px;
     // margin-left: 20px;
-    border-radius: 100%;
-    height: 40px;
-    width: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    right: $header-marg;
-    top:$header-top;
+    // border-radius: 100%;
+    width: 80px;
+    border: 2px solid $main-font-color;;
+    border-radius: 50px;
+    height: 34px;
+
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    // right: $header-marg;
+    // top: $header-top;
+
+
+    // .theme-toggle {
+    // padding: 3px;
+    //     width: 80px;
+    //     height: 34px;
+    // }
 
     .moon {
-        color: wheat;
-        margin-top: 2px;
+        // color: wheat;
+        color: black;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin: 4px;
+
+
         svg {
-            height: 25px !important;
-            width: 25px !important;
+            height: 24px !important;
+            width: 24px !important;
         }
     }
 
     .sun {
-        color: black;
-        margin-top: 2px;
+        color: white;
+        margin: 4px;
+        display: flex;
+        justify-content: flex-start;
+
+
         svg {
-            height: 25px !important;
-            width: 25px !important;
+            height: 24px !important;
+            width: 24px !important;
         }
     }
 
     &.dark {
-        display: none;
-        background-color: aliceblue;
+        // background-color: aliceblue;
     }
 
     &.light {
-        background-color:rgb(32, 29, 29);
+        // background-color: rgb(32, 29, 29);
     }
 }
