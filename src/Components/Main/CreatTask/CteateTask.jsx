@@ -6,6 +6,7 @@ import { AiOutlinePlusCircle } from 'react-icons/ai'
 import EditorToolbar, { modules, formats } from "./Editortoobar.jsx";
 import { BsTrash3 } from 'react-icons/Bs';
 import { GiSettingsKnobs } from 'react-icons/gi'
+import Select from 'react-select';
 
 export default function Createtask() {
 
@@ -17,6 +18,7 @@ export default function Createtask() {
     const [nameTask, setnameTask] = useState('');
     const [textDisc, setTextDisc] = useState('');
     const [selektEtaps, setSelektEtaps] = useState([]);
+    const [otv, setOtv] = useState([]);
 
 
     const sellectActivTaske = (id) => {
@@ -40,6 +42,8 @@ export default function Createtask() {
         if (newEtaps.length == 0) {
             newEtaps = [{ "name": "", "status": false }]
         }
+
+        setOtv(task[id].otv)
 
         setSelektEtaps(newEtaps)
 
@@ -66,6 +70,8 @@ export default function Createtask() {
         console.log(newEtaps)
         newtask[id].etaps = newEtaps
 
+        newtask[id].otv = otv
+
         settask(newtask);
 
     };
@@ -77,6 +83,7 @@ export default function Createtask() {
             "name": "Новая задача",
             "disk": "",
             "etaps": [],
+            "otv" : [],
         }
         settask(newtask);
     };
@@ -142,10 +149,23 @@ export default function Createtask() {
     };
 
     const changeSelektEtap = (id, parm) => {
-        let oldEtap = [ ...selektEtaps ]
+        let oldEtap = [...selektEtaps]
         oldEtap[id].name = parm
         setSelektEtaps(oldEtap)
     }
+
+
+    const options = [
+        { value: 'option1', label: 'Option 1' },
+        { value: 'option2', label: 'Option 2' },
+        { value: 'option3', label: 'Option 3' },
+        // Добавьте здесь другие варианты, если необходимо
+    ];
+
+    const selectOtv = (selectedOptions) => {
+        // Обработка выбранных опций
+        setOtv(selectedOptions);
+    };
 
     return (
         <>
@@ -187,6 +207,16 @@ export default function Createtask() {
                                 </div>
 
                                 <AiOutlinePlusCircle className='AddComp' onClick={addEtaps} />
+                                <p>Исполнители</p>
+                                <Select
+                                    isMulti
+                                    options={options}
+                                    onChange={selectOtv}
+                                    className='SelectOtv'
+                                    placeholder="Выберите ответсвенных"
+                                    value={otv}
+                                />
+
                                 {/* 
                                 <p>Остальные параметры</p>
                                 <div className="otherParms">
@@ -220,7 +250,7 @@ export default function Createtask() {
                     </div>
                 ))}
                 <AiOutlinePlusCircle className='AddTask' onClick={addTask} />
-            </div>
+            </div >
         </>
     )
 }
