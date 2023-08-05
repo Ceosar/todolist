@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import "./Createtask.scss"
+import "./CreaTask.scss"
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { AiOutlinePlusCircle } from 'react-icons/ai'
@@ -9,105 +9,91 @@ import { GiSettingsKnobs } from 'react-icons/gi'
 
 export default function Createtask() {
 
+
+    // console.clear()
+
     const [task, settask] = useState({});
-    const [activTask, setactivTask] = useState(-1);
+    const [activTask, setActivTask] = useState(-1);
     const [nameTask, setnameTask] = useState('');
     const [textDisc, setTextDisc] = useState('');
-    const [selektEtaps, setselektEtaps] = useState({});
-    const [otherParms, setOtherParms] = useState({});
+    const [selektEtaps, setSelektEtaps] = useState([]);
+    const [otherParms, setOtherParms] = useState([]);
 
+    const sellectActivTaske = (id) => {
 
-    const saveactivTaske = (id, flag = true) => {
+        // if (activTask !== -1) {
+        //     saveActivTaske(activTask, false);
+        // }
+        setActivTask(id);
+
+        setnameTask(task[id].name);
+        setTextDisc(task[id].description);
+
+        let newEtaps = []
+
+        task[id].etaps.map((value) => {
+            newEtaps.push = value
+        })
+        if (newEtaps.length == 0) {
+            newEtaps = [{ "name": "", "status": false }]
+        }
+
+        let newParms = []
+
+        task[id].parms.map((value, index) => {
+            newParms.push(value)
+        })
+
+        if (newParms.length == 0) {
+            newParms.push({ "name": "", "status": false })
+        }
+
+        setSelektEtaps(newEtaps)
+
+        setOtherParms(newParms)
+    };
+
+    const saveActivTaske = (id, flag = true) => {
         if (flag) {
             setactivTask(-1)
         }
         let newtask = { ...task };
+
         newtask[id].name = nameTask;
+
         newtask[id].podFaz[0].description = textDisc;
-        let newComponents = []
+
+        let newEtaps = []
+
         for (let value in selektEtaps) {
-            newComponents.push({ "name": selektEtaps[value].name, "colvo": selektEtaps[value].colvo })
+            newEtaps.push({ "discriptions": selektEtaps[value].discriptions })
         }
-        newtask[id].components = newComponents
-        if (temp != '') {
-            newtask[id].parms.temp = temp
-        }
+        newtask[id].etaps = newEtaps
 
         let newParms = []
+
         for (let value in otherParms) {
             newParms.push(otherParms[value])
         }
-        newtask[id].parms.other = newParms
-
+        newtask[id].parms = newParms
 
         settask(newtask);
     };
 
-    const sellectactivTaske = (id) => {
-        if (activTask !== -1) {
-            saveactivTaske(activTask, false);
-        }
-        setactivTask(id);
-        setnameTask(task[id].name);
-        setTextDisc(task[id].podFaz[0].description);
-        let newComponents = {}
-        task[id].components.map((value, index) => {
-            newComponents[index] = value
-        })
-        if (Object.keys(newComponents).length == 0) {
-            newComponents = {
-                0: {
-                    "name": "",
-                    "colvo": ""
-                }
-            }
-        }
 
-        let newParms = {}
-
-        task[id].parms.other.map((value, index) => {
-            newParms[index] = value
-        })
-
-        if (Object.keys(newParms).length == 0) {
-            newParms = {
-                0: ""
-            }
-        }
-
-        setTemp(task[id].parms.temp)
-
-        setselektEtaps(newComponents)
-
-        setOtherParms(newParms)
-    };
 
     const addFaze = () => {
         let newtask = { ...task };
         newtask[Object.keys(newtask).length] = {
             "name": "Новая задача",
-            "podFaz": [
-                {
-                    "description": ""
-                }
+            "etaps": [
+                { "name": "Создать дизайн", "status": false }
             ],
-            "components": [],
-            "parms": {
-                "temp": "",
-                "other": [
-                ]
-            }
-        };
+            "parms": [
+                { "name": "Пушить все в ветку dev", "status": false }
+            ]
+        }
         settask(newtask);
-    };
-
-    const addComp = () => {
-        let newComponent = { ...selektEtaps };
-        newComponent[Object.keys(newComponent).length] = {
-            "name": "",
-            "colvo": ""
-        };
-        setselektEtaps(newComponent);
     };
 
     const addParm = () => {
@@ -115,6 +101,17 @@ export default function Createtask() {
         let newParm = { ...otherParms };
         newParm[Object.keys(newParm).length] = "";
         setOtherParms(newParm);
+    };
+
+    const addEtaps = () => {
+
+        let newEtaps = [...selektEtaps];
+
+
+        newEtaps.push({ "name": "Пушить все в ветку dev", "status": false })
+
+        setSelektEtaps(newEtaps)
+
     };
 
 
@@ -187,10 +184,10 @@ export default function Createtask() {
         setselektEtaps(oldCOmp)
     }
 
-    const selektVes = (id, ves) => {
-        let oldCOmp = { ...selektEtaps }
-        oldCOmp[id].colvo = ves
-        setselektEtaps(oldCOmp)
+    const changeSelektEtap = (id, parm) => {
+        let oldEtap = { ...selektEtaps }
+        oldEtap[id].name = parm
+        setselektEtaps(oldEtap)
     }
 
     const selektParm = (id, parm) => {
@@ -226,18 +223,20 @@ export default function Createtask() {
                                         formats={formats}
                                     />
                                 </div>
-                                <p>Шаги выполнения</p>
+                                <p>Этапы</p>
                                 <div className="selectKomponents">
-                                    {Object.keys(selektEtaps).map((component, index) => (
+                                    {selektEtaps.map((component, index) => (
                                         <div className="selektComp" key={index}>
                                             <div className="comp">
                                                 <BsTrash3 className='DellComp' onClick={() => dellComp(index)} />
-                                                <input className='ves' type="text" value={selektEtaps[index].colvo} onChange={(e) => selektVes(index, e.target.value)} placeholder="Этап задачи" ></input>
+                                                <input className='ves' type="text" value={selektEtaps[index].name} onChange={(e) => changeSelektEtap(index, e.target.value)} placeholder="Этап задачи" ></input>
                                             </div>
                                         </div>
                                     ))}
                                 </div>
-                                <AiOutlinePlusCircle className='AddComp' onClick={addComp} />
+
+                                <AiOutlinePlusCircle className='AddComp' onClick={addEtaps} />
+                                {/* 
                                 <p>Остальные параметры</p>
                                 <div className="otherParms">
                                     {Object.keys(otherParms).map((component, index) => (
@@ -251,9 +250,9 @@ export default function Createtask() {
                                 </div>
                                 <AiOutlinePlusCircle className='AddComp' onClick={addParm} />
                                 <div className="butns">
-                                    <button className='save-btn' onClick={() => saveactivTaske(index)}>Сохранить</button>
+                                    <button className='save-btn' onClick={() => saveActivTaske(index)}>Сохранить</button>
                                     <button className='del-btn  ' onClick={() => dellFaze(index)}>Удалить</button>
-                                </div>
+                                </div> */}
 
                             </>
                         )}
@@ -261,9 +260,9 @@ export default function Createtask() {
                             <>
                                 <div className="stats">
                                     <div className="name" >{task[id].name}</div>
-                                    <div className="cplvoComp">Всего шагов - {task[id].components.length}</div>
+                                    <div className="cplvoComp">Всего шагов - {task[id].etaps.length}</div>
                                 </div>
-                                <GiSettingsKnobs className='SettingsFaz' onClick={() => sellectactivTaske(id)} />
+                                <GiSettingsKnobs className='SettingsFaz' onClick={() => sellectActivTaske(id)} />
                             </>
                         )}
                     </div>

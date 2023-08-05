@@ -1,0 +1,12 @@
+{
+    "1" : {
+        "name" : "Новая задача",
+        "description" : "",
+        "etaps" : [
+            {"name" : "Создать дизайн" , "status" : false}
+        ],
+        "parms" : [
+            {"name" : "Пушить все в ветку dev" , "status" : false}
+        ]
+    }
+}
