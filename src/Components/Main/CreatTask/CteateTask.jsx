@@ -21,9 +21,10 @@ export default function Createtask() {
 
     const sellectActivTaske = (id) => {
 
-        // if (activTask !== -1) {
-        //     saveActivTaske(activTask, false);
-        // }
+        if (activTask !== -1) {
+            saveActivTaske(activTask, false);
+        }
+
         setActivTask(id);
 
         setnameTask(task[id].name);
@@ -38,6 +39,8 @@ export default function Createtask() {
             newEtaps = [{ "name": "", "status": false }]
         }
 
+        setSelektEtaps(newEtaps)
+
         // let newParms = []
 
         // task[id].parms.map((value, index) => {
@@ -48,36 +51,36 @@ export default function Createtask() {
         //     newParms.push({ "name": "", "status": false })
         // }
 
-        setSelektEtaps(newEtaps)
 
         // setOtherParms(newParms)
     };
 
     const saveActivTaske = (id, flag = true) => {
-        // if (flag) {
-        //     setactivTask(-1)
-        // }
+        if (flag) {
+            setActivTask(-1)
+        }
         let newtask = { ...task };
 
         newtask[id].name = nameTask;
 
-        newtask[id].podFaz[0].description = textDisc;
+        newtask[id].disk = textDisc;
 
         let newEtaps = []
 
         for (let value in selektEtaps) {
-            newEtaps.push({ "discriptions": selektEtaps[value].discriptions })
+            newEtaps.push(value)
         }
         newtask[id].etaps = newEtaps
 
-        let newParms = []
-
-        for (let value in otherParms) {
-            newParms.push(otherParms[value])
-        }
-        newtask[id].parms = newParms
-
         settask(newtask);
+
+        // let newParms = []
+
+        // for (let value in otherParms) {
+        //     newParms.push(otherParms[value])
+        // }
+        // newtask[id].parms = newParms
+
     };
 
 
@@ -85,10 +88,8 @@ export default function Createtask() {
         let newtask = { ...task };
         newtask[Object.keys(newtask).length] = {
             "name": "Новая задача",
-            "disk" : "",
-            "etaps": [
-                // { "name": "Создать дизайн", "status": false }
-            ],
+            "disk": "",
+            "etaps": [],
             // "parms": [
             //     { "name": "Пушить все в ветку dev", "status": false }
             // ]
