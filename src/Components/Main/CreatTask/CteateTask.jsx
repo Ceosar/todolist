@@ -17,7 +17,7 @@ export default function Createtask() {
     const [nameTask, setnameTask] = useState('');
     const [textDisc, setTextDisc] = useState('');
     const [selektEtaps, setSelektEtaps] = useState([]);
-    const [otherParms, setOtherParms] = useState([]);
+
 
     const sellectActivTaske = (id) => {
 
@@ -38,25 +38,25 @@ export default function Createtask() {
             newEtaps = [{ "name": "", "status": false }]
         }
 
-        let newParms = []
+        // let newParms = []
 
-        task[id].parms.map((value, index) => {
-            newParms.push(value)
-        })
+        // task[id].parms.map((value, index) => {
+        //     newParms.push(value)
+        // })
 
-        if (newParms.length == 0) {
-            newParms.push({ "name": "", "status": false })
-        }
+        // if (newParms.length == 0) {
+        //     newParms.push({ "name": "", "status": false })
+        // }
 
         setSelektEtaps(newEtaps)
 
-        setOtherParms(newParms)
+        // setOtherParms(newParms)
     };
 
     const saveActivTaske = (id, flag = true) => {
-        if (flag) {
-            setactivTask(-1)
-        }
+        // if (flag) {
+        //     setactivTask(-1)
+        // }
         let newtask = { ...task };
 
         newtask[id].name = nameTask;
@@ -81,34 +81,27 @@ export default function Createtask() {
     };
 
 
-
-    const addFaze = () => {
+    const addTask = () => {
         let newtask = { ...task };
         newtask[Object.keys(newtask).length] = {
             "name": "Новая задача",
+            "disk" : "",
             "etaps": [
-                { "name": "Создать дизайн", "status": false }
+                // { "name": "Создать дизайн", "status": false }
             ],
-            "parms": [
-                { "name": "Пушить все в ветку dev", "status": false }
-            ]
+            // "parms": [
+            //     { "name": "Пушить все в ветку dev", "status": false }
+            // ]
         }
         settask(newtask);
-    };
-
-    const addParm = () => {
-
-        let newParm = { ...otherParms };
-        newParm[Object.keys(newParm).length] = "";
-        setOtherParms(newParm);
     };
 
     const addEtaps = () => {
 
         let newEtaps = [...selektEtaps];
 
-
-        newEtaps.push({ "name": "Пушить все в ветку dev", "status": false })
+        // { "name": "Пушить все в ветку dev", "status": false }
+        newEtaps.push({ "name": "", "status": false })
 
         setSelektEtaps(newEtaps)
 
@@ -253,7 +246,7 @@ export default function Createtask() {
                                 <div className="butns">
                                     <button className='save-btn' onClick={() => saveActivTaske(index)}>Сохранить</button>
                                     <button className='del-btn  ' onClick={() => dellFaze(index)}>Удалить</button>
-                                </div> 
+                                </div>
 
                             </>
                         )}
@@ -268,7 +261,7 @@ export default function Createtask() {
                         )}
                     </div>
                 ))}
-                <AiOutlinePlusCircle className='AddFaz' onClick={addFaze} />
+                <AiOutlinePlusCircle className='AddTask' onClick={addTask} />
             </div>
         </>
     )
