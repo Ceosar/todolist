@@ -3,10 +3,13 @@
 .header-contaner {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
-    margin-top: 20px;
-    height: 90px;
-    border-bottom: 2px solid $main-font-color;
+    align-items: center;
+    gap: 50px;
+    justify-content: space-around;
+    margin-top: 55px;
+    margin-bottom: 55px;
+    // height: 90px;
+    // border-bottom: 2px solid $main-font-color;
     font-size: $main-font-size;
     color: #FFF;
     font-family: $main-font;
@@ -15,10 +18,19 @@
     font-weight: 400;
     line-height: normal;
 
+    .header-properties{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 45px;
+        color: $main-font-color;
+    }
+
     .logo {
         // position: absolute;
-        top: $header-top;
-        left: $header-marg;
+        // top: $header-top;
+        // left: $header-marg;
+        color: $main-font-color;
 
         path {
             fill: $main-font-color;
@@ -27,18 +39,32 @@
 
     .name {
         // position: absolute;
-        top: $header-top;
-        margin-right: 50px;
-        right: $header-marg + 300px;
-        color:$main-font-color;
+        // top: $header-top;
+        // margin-right: 50px;
+        // right: $header-marg;
+        color: $main-font-color;
     }
 
     .loginOut {
         // position: absolute;
-        top: $header-top;
-        right: $header-marg + 40px;
-        margin-right: 200px;
-        color:$main-font-color;
+        // top: $header-top;
+        // right: $header-marg;
+        // margin-right: 200px;
+        color: $main-font-color;
+    }
+
+    .language-place button {
+        font-size: 30px;
+        text-decoration: none;
+        background-image: linear-gradient(currentColor, currentColor);
+        background-position: 0% 100%;
+        background-repeat: no-repeat;
+        background-size: 0% 2px;
+        transition: background-size .4s;
+    }
+
+    .language-place button:hover {
+        background-size: 100% 2px;
     }
 
 }
