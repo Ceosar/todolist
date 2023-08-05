@@ -5,10 +5,17 @@ import SignUp from "./SignUp/SignUp";
 import SignIn from "./SignIn/SignIn";
 import classes from './Auth.module.css';
 // import './Auth-theme.css'
+import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
+import { useNavigate } from "react-router-dom";
 
-const Auth = () => {
+
+const Auth = ({ setLoggin }) => {
+
+    let navigate = useNavigate();
+
     const { theme, setTheme } = useTheme();
     const [auth, setAuth] = useState(0);
+
 
     const handleThemeClick = () => {
         if (theme === 'light') {
@@ -77,16 +84,23 @@ const Auth = () => {
                         variants={authAnimationFromUp}
                         custom={9}
                         className={classes.auth_language}
+                        onClick={() => { setLoggin(true) ; localStorage.setItem('loggin',true); }}
                     >
                         <button>RUS</button>
                     </motion.section>
-                    <motion.button
+                    {/* <motion.button
                         variants={authAnimationFromUp}
                         custom={9}
                         className={classes.theme_toggle} onClick={handleThemeClick}
                     >
                         <aside className={classes.theme_logo}></aside>
-                    </motion.button>
+                    </motion.button> */}
+                    <motion.div
+                        variants={authAnimationFromUp}
+                        custom={9}
+                    >
+                        <ThemeSwitcher event={handleThemeClick} />
+                    </motion.div>
                 </header>
                 {auth ? <SignUp setAuth={setAuth} /> : <SignIn setAuth={setAuth} />}
 

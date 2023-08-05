@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BsFillMoonStarsFill, BsSun } from 'react-icons/Bs'
 import './ThemeSwitcher.scss';
 
-const ThemeSwitcher = () => {
+const ThemeSwitcher = ({ event }) => {
   const [isDarkTheme, setIsDarkTheme] = useState(true);
 
   const handleThemeToggle = (parms) => {
@@ -14,6 +14,18 @@ const ThemeSwitcher = () => {
     root.style.setProperty('--text-color', isDarkTheme ? '#333' : '#f0f0f0');
 
     setIsDarkTheme(parms);
+
+    if (isDarkTheme) {
+      localStorage.setItem('app-theme', 'dark');
+    } else {
+      localStorage.setItem('app-theme', 'light');
+    }
+
+    console.log(isDarkTheme)
+
+    if (event) {
+      event()
+    }
   };
 
   // const handleThemeToggle = (parms) => {
@@ -29,6 +41,15 @@ const ThemeSwitcher = () => {
 
 
   useEffect(() => {
+
+    const LokThemm = localStorage.getItem('app-theme');
+
+    if (LokThemm == "dark") {
+      setIsDarkTheme(false);
+    } else {
+      setIsDarkTheme(true);
+    }
+
     const root = document.documentElement;
 
     root.className = isDarkTheme ? "dark" : "light";
@@ -38,11 +59,11 @@ const ThemeSwitcher = () => {
 
   return (
     <div className={`theme-switcher ${isDarkTheme ? 'dark' : 'light'}`}>
-      <div className={`qwe ${isDarkTheme ? 'sun' : 'moon'}`}>
+      <div className={`theme ${isDarkTheme ? 'sun' : 'moon'}`} onClick={() => handleThemeToggle(!isDarkTheme)} >
         {isDarkTheme ? (
-          <BsSun className="icon" onClick={() => handleThemeToggle(!isDarkTheme)} />
+          <BsSun className="icon" />
         ) : (
-          <BsFillMoonStarsFill className="icon" onClick={() => handleThemeToggle(!isDarkTheme)} />
+          <BsFillMoonStarsFill className="icon" />
         )}
       </div>
     </div>

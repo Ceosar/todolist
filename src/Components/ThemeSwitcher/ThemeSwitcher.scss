@@ -9,25 +9,33 @@
     display: flex;
     align-items: center;
 
-    .qwe {
+    .theme {
         position: relative;
-        transition: right 1s !important;
-        right: -5px;
+        transition: right 0.5s !important;
+        right: 1px;
         height: 34px;
+        background-color: $main-font-color;
+        border-radius: 50px;
+        width: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
         &.moon {
-            color: $main-font-color;
-            right: -47px;
+            color: $primary-color;
+            right: -27px;
         }
 
         &.sun {
-            color: $main-font-color;
+            color: $primary-color;
         }
     }
 
     svg {
         height: 24px !important;
         width: 24px !important;
-        cursor: pointer;
+
     }
 
 }

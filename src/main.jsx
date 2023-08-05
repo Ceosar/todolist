@@ -11,12 +11,9 @@ import Zad from './Components/Main/Zad/Zad.jsx';
 import CreateTexCart from "./Components/Main/CreatTask/CteateTask.jsx"
 
 
-const userLogin = true;
-
-
-const routerLoginTrue = createBrowserRouter([
+const routers = createBrowserRouter([
   {
-    path: "/",
+    path: "/*",
     element: <App />,
     children: [
       {
@@ -31,46 +28,21 @@ const routerLoginTrue = createBrowserRouter([
         path: "texCarts",
         element: <h1>Tex Carts</h1>,
       },
-    ],
-  },
-  {
-    path: "*",
-    element: <App />,
-    children: [
-      {
-        path: "zad",
-        element: <Zad />,
-      },
-      {
-        path: "add",
-        element: <h1>Addd</h1>,
-      },
-      {
-        path: "texCarts",
-        element: <h1>Tex Carts</h1>,
-      },
+      // {
+      //   path: "loggin",
+      //   element: <Auth />,
+      // }
     ],
   },
 
 ]);
-
-const routerLoginFalse = createBrowserRouter([
-  {
-    path: "*",
-    element: <Auth/>,
-    // children: [
-    //   {
-    //     path: "zad",
-    //     element: <App />,
-    //   }
-    // ],
-  },
-
-]);
-
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={userLogin ? routerLoginTrue : routerLoginFalse} />
+    <RouterProvider router={routers} />
   </React.StrictMode>,
 )
+
+
+
+
