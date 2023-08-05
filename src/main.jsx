@@ -8,7 +8,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Zad from './Components/Main/Zad/Zad.jsx';
-import CreateTexCart from "./Components/Main/CreateTexCart/CteateTexCart.jsx"
+import CreateTexCart from "./Components/Main/CreatTask/CteateTask.jsx"
 
 
 const userLogin = true;
