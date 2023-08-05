@@ -11,9 +11,6 @@ export default function Zad() {
                     {value.status == "ok" && (
                         <AiOutlineCheckCircle className={"icon " + value.status} />
                     )}
-                    {value.status == "error" && (
-                        <AiOutlineCloseCircle className={"icon " + value.status} />
-                    )}
                     {value.status == "work" && (
                         <AiOutlineExclamationCircle className={"icon " + value.status} />
                     )}
@@ -22,7 +19,7 @@ export default function Zad() {
                     )}
                     <div className="text">
                         <div className="title">{value.title}</div>
-                        <div className="status">Статус - {value.status == "ok" ? "Завершон" : value.status == "error" ? "Допущена ошибка " : value.status == "work" ? "В работе" : "Не принят в работу"}</div>
+                        <div className="status">Статус - {value.status == "ok" ? "Выполнено" : value.status == "work" ? "В работе" : "Не принят в работу"}</div>
                     </div>
                 </div>
             ))}

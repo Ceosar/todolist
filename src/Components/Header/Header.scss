@@ -1,7 +1,11 @@
 @import '../../Constants.scss';
 
 .header-contaner {
-    height: 120px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 20px;
+    height: 90px;
     border-bottom: 2px solid $main-font-color;
     font-size: $main-font-size;
     color: #FFF;
@@ -12,7 +16,7 @@
     line-height: normal;
 
     .logo {
-        position: absolute;
+        // position: absolute;
         top: $header-top;
         left: $header-marg;
 
@@ -22,7 +26,7 @@
     }
 
     .name {
-        position: absolute;
+        // position: absolute;
         top: $header-top;
         margin-right: 50px;
         right: $header-marg + 300px;
@@ -30,7 +34,7 @@
     }
 
     .loginOut {
-        position: absolute;
+        // position: absolute;
         top: $header-top;
         right: $header-marg + 40px;
         margin-right: 200px;
