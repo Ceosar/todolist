@@ -11,8 +11,6 @@ import Select from 'react-select';
 export default function Createtask() {
 
 
-    // console.clear()
-
     const [task, settask] = useState({});
     const [activTask, setActivTask] = useState(-1);
     const [nameTask, setnameTask] = useState('');
@@ -30,8 +28,6 @@ export default function Createtask() {
 
     const sellectActivTaske = (id) => {
 
-
-        console.log(task[id])
         if (activTask !== -1) {
             saveActivTaske(activTask, false);
         }
@@ -66,15 +62,12 @@ export default function Createtask() {
 
         newtask[id].disk = textDisc;
 
-        console.log(newtask[id].disk)
-
         let newEtaps = []
 
         for (let value in selektEtaps) {
             newEtaps.push(selektEtaps[value])
         }
 
-        console.log(newEtaps)
         newtask[id].etaps = newEtaps
 
         newtask[id].otv = otv
@@ -163,10 +156,9 @@ export default function Createtask() {
 
 
     const options = [
-        { value: 'option1', label: 'Option 1' },
-        { value: 'option2', label: 'Option 2' },
-        { value: 'option3', label: 'Option 3' },
-        // Добавьте здесь другие варианты, если необходимо
+        { value: 1, label: 'Илья' },
+        { value: 2, label: 'Данил' },
+        { value: 3, label: 'Алексей' },
     ];
 
     const selectOtv = (selectedOptions) => {
