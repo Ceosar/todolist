@@ -1,6 +1,5 @@
 [
-    {"title": "Рецепт 1", "status" : "ok"},
-    {"title": "Рецепт 2", "status" : "error"},
-    {"title": "Рецепт 3", "status" : "work"},
-    {"title": "Рецепт 4", "status" : "nowork"}
+    {"title": "Задача 1", "status" : "ok"},
+    {"title": "Задача 2", "status" : "work"},
+    {"title": "Задача 3", "status" : "nowork"}
 ]
