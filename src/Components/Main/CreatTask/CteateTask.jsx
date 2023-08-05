@@ -21,6 +21,8 @@ export default function Createtask() {
 
     const sellectActivTaske = (id) => {
 
+
+        console.log(task[id])
         if (activTask !== -1) {
             saveActivTaske(activTask, false);
         }
@@ -28,12 +30,12 @@ export default function Createtask() {
         setActivTask(id);
 
         setnameTask(task[id].name);
-        setTextDisc(task[id].description);
+        setTextDisc(task[id].disk);
 
         let newEtaps = []
 
         task[id].etaps.map((value) => {
-            newEtaps.push = value
+            newEtaps.push(value);
         })
         if (newEtaps.length == 0) {
             newEtaps = [{ "name": "", "status": false }]
@@ -41,18 +43,6 @@ export default function Createtask() {
 
         setSelektEtaps(newEtaps)
 
-        // let newParms = []
-
-        // task[id].parms.map((value, index) => {
-        //     newParms.push(value)
-        // })
-
-        // if (newParms.length == 0) {
-        //     newParms.push({ "name": "", "status": false })
-        // }
-
-
-        // setOtherParms(newParms)
     };
 
     const saveActivTaske = (id, flag = true) => {
@@ -65,21 +55,18 @@ export default function Createtask() {
 
         newtask[id].disk = textDisc;
 
+        console.log(newtask[id].disk)
+
         let newEtaps = []
 
         for (let value in selektEtaps) {
-            newEtaps.push(value)
+            newEtaps.push(selektEtaps[value])
         }
+
+        console.log(newEtaps)
         newtask[id].etaps = newEtaps
 
         settask(newtask);
-
-        // let newParms = []
-
-        // for (let value in otherParms) {
-        //     newParms.push(otherParms[value])
-        // }
-        // newtask[id].parms = newParms
 
     };
 
@@ -90,9 +77,6 @@ export default function Createtask() {
             "name": "Новая задача",
             "disk": "",
             "etaps": [],
-            // "parms": [
-            //     { "name": "Пушить все в ветку dev", "status": false }
-            // ]
         }
         settask(newtask);
     };
@@ -100,7 +84,6 @@ export default function Createtask() {
     const addEtaps = () => {
 
         let newEtaps = [...selektEtaps];
-
         // { "name": "Пушить все в ветку dev", "status": false }
         newEtaps.push({ "name": "", "status": false })
 
@@ -109,9 +92,9 @@ export default function Createtask() {
     };
 
 
-    const dellFaze = (id) => {
+    const dellTaske = (id) => {
         let newtask = {};
-        setactivTask(-1);
+        setActivTask(-1);
         for (let key in task) {
             if (task.hasOwnProperty(key)) {
                 const index = Object.keys(task).indexOf(key);
@@ -123,8 +106,8 @@ export default function Createtask() {
         settask(newtask);
     };
 
-    const dellComp = (id) => {
-        let newselektEtaps = {};
+    const dellEtaps = (id) => {
+        let newselektEtaps = [];
         for (let key in selektEtaps) {
             if (selektEtaps.hasOwnProperty(key)) {
                 const index = Object.keys(selektEtaps).indexOf(key);
@@ -133,20 +116,7 @@ export default function Createtask() {
                 }
             }
         }
-        setselektEtaps(newselektEtaps);
-    };
-
-    const dellParm = (id) => {
-        let newParm = {};
-        for (let key in otherParms) {
-            if (otherParms.hasOwnProperty(key)) {
-                const index = Object.keys(otherParms).indexOf(key);
-                if (index !== id) {
-                    newParm[Object.keys(newParm).length] = otherParms[key];
-                }
-            }
-        }
-        setOtherParms(newParm);
+        setSelektEtaps(newselektEtaps);
     };
 
     const handleDragStart = (event, index) => {
@@ -171,23 +141,10 @@ export default function Createtask() {
         }
     };
 
-
-    const selektComp = (id, item) => {
-        let oldCOmp = { ...selektEtaps }
-        oldCOmp[id].name = item
-        setselektEtaps(oldCOmp)
-    }
-
     const changeSelektEtap = (id, parm) => {
-        let oldEtap = { ...selektEtaps }
+        let oldEtap = [ ...selektEtaps ]
         oldEtap[id].name = parm
-        setselektEtaps(oldEtap)
-    }
-
-    const selektParm = (id, parm) => {
-        let oldParm = { ...otherParms }
-        oldParm[id] = parm
-        setOtherParms(oldParm)
+        setSelektEtaps(oldEtap)
     }
 
     return (
@@ -222,7 +179,7 @@ export default function Createtask() {
                                     {selektEtaps.map((component, index) => (
                                         <div className="Etap" key={index}>
                                             <div className="comp">
-                                                <BsTrash3 className='DellEtap' onClick={() => dellComp(index)} />
+                                                <BsTrash3 className='DellEtap' onClick={() => dellEtaps(index)} />
                                                 <input className='inputEtzps' type="text" value={selektEtaps[index].name} onChange={(e) => changeSelektEtap(index, e.target.value)} placeholder="Этап задачи" ></input>
                                             </div>
                                         </div>
@@ -246,7 +203,7 @@ export default function Createtask() {
                                 */}
                                 <div className="butns">
                                     <button className='save-btn' onClick={() => saveActivTaske(index)}>Сохранить</button>
-                                    <button className='del-btn  ' onClick={() => dellFaze(index)}>Удалить</button>
+                                    <button className='del-btn  ' onClick={() => dellTaske(index)}>Удалить</button>
                                 </div>
 
                             </>
