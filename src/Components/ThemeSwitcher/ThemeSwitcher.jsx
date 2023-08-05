@@ -38,18 +38,13 @@ const ThemeSwitcher = () => {
 
   return (
     <div className={`theme-switcher ${isDarkTheme ? 'dark' : 'light'}`}>
-      {/* <div className='theme-toggle'> */}
-      {isDarkTheme && (
-        <div className={"sun"} onClick={() => handleThemeToggle(false)}>
-          <BsSun className="icon" />
-        </div>
-      )}
-      {!isDarkTheme && (
-        <div className={"moon"} onClick={() => handleThemeToggle(true)}>
-          <BsFillMoonStarsFill className="icon" />
-        </div>
-      )}
-      {/* </div> */}
+      <div className={`qwe ${isDarkTheme ? 'sun' : 'moon'}`}>
+        {isDarkTheme ? (
+          <BsSun className="icon" onClick={() => handleThemeToggle(!isDarkTheme)} />
+        ) : (
+          <BsFillMoonStarsFill className="icon" onClick={() => handleThemeToggle(!isDarkTheme)} />
+        )}
+      </div>
     </div>
   );
 };

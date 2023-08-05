@@ -1,60 +1,33 @@
 @import '../../Constants.scss';
 
 .theme-switcher {
-    // position: absolute;
-    // margin-left: 20px;
-    // border-radius: 100%;
+
     width: 80px;
-    border: 2px solid $main-font-color;;
+    border: 2px solid $main-font-color;
     border-radius: 50px;
     height: 34px;
+    display: flex;
+    align-items: center;
 
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-    // right: $header-marg;
-    // top: $header-top;
+    .qwe {
+        position: relative;
+        transition: right 1s !important;
+        right: -5px;
+        height: 34px;
+        &.moon {
+            color: $main-font-color;
+            right: -47px;
+        }
 
-
-    // .theme-toggle {
-    // padding: 3px;
-    //     width: 80px;
-    //     height: 34px;
-    // }
-
-    .moon {
-        // color: wheat;
-        color: black;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        margin: 4px;
-
-
-        svg {
-            height: 24px !important;
-            width: 24px !important;
+        &.sun {
+            color: $main-font-color;
         }
     }
 
-    .sun {
-        color: white;
-        margin: 4px;
-        display: flex;
-        justify-content: flex-start;
-
-
-        svg {
-            height: 24px !important;
-            width: 24px !important;
-        }
+    svg {
+        height: 24px !important;
+        width: 24px !important;
+        cursor: pointer;
     }
 
-    &.dark {
-        // background-color: aliceblue;
-    }
-
-    &.light {
-        // background-color: rgb(32, 29, 29);
-    }
 }
