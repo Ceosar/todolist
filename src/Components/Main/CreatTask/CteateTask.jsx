@@ -20,6 +20,13 @@ export default function Createtask() {
     const [selektEtaps, setSelektEtaps] = useState([]);
     const [otv, setOtv] = useState([]);
 
+    const saveTask = () => {
+        if (activTask != -1) {
+            saveActivTaske(activTask);
+        }
+        console.log(task)
+    }
+
 
     const sellectActivTaske = (id) => {
 
@@ -83,7 +90,7 @@ export default function Createtask() {
             "name": "Новая задача",
             "disk": "",
             "etaps": [],
-            "otv" : [],
+            "otv": [],
         }
         settask(newtask);
     };
@@ -163,7 +170,6 @@ export default function Createtask() {
     ];
 
     const selectOtv = (selectedOptions) => {
-        // Обработка выбранных опций
         setOtv(selectedOptions);
     };
 
@@ -251,6 +257,8 @@ export default function Createtask() {
                 ))}
                 <AiOutlinePlusCircle className='AddTask' onClick={addTask} />
             </div >
+            {Object.keys(task).length > 0 && (<button className="saveTask" onClick={saveTask}>Сохранить</button>)}
+
         </>
     )
 }

@@ -265,4 +265,23 @@
         width: 50px;
         cursor: pointer;
     }
+
+}
+
+.saveTask {
+    margin: 50px auto;
+    width: 400px;
+    background-color: $main-font-color;
+    font-family: $main-font;
+    font-size: $main-font-size;
+    border-radius: px;
+    border-radius: 20px;
+    padding: 10px 20px;
+    text-align: center;
+    color: $primary-color ;
+
+    &:hover {
+        background-color: #CCFFA5;
+        color: black;
+    }
 }
