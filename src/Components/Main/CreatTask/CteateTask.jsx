@@ -202,7 +202,7 @@ export default function Createtask() {
                 {Object.keys(task).map((id, index) => (
 
                     <div
-                        className={'faza ' + (activTask == index ? "active" : "")}
+                        className={'task ' + (activTask == index ? "active" : "")}
                         key={index}
                         draggable={activTask == index ? "false" : "true"}
                         onDragStart={(e) => handleDragStart(e, index)}
@@ -211,7 +211,7 @@ export default function Createtask() {
                     >
                         {activTask == index && (
                             <>
-                                <input type="text" value={nameTask} onChange={(e) => setnameTask(e.target.value)} placeholder="Название фазы" ></input>
+                                <input className='NameZad' type="text" value={nameTask} onChange={(e) => setnameTask(e.target.value)} placeholder="Название фазы" ></input>
                                 <p>Описание задачи</p>
                                 <div className="textdisc">
                                     <EditorToolbar />
@@ -224,12 +224,12 @@ export default function Createtask() {
                                     />
                                 </div>
                                 <p>Этапы</p>
-                                <div className="selectKomponents">
+                                <div className="addEtaps">
                                     {selektEtaps.map((component, index) => (
-                                        <div className="selektComp" key={index}>
+                                        <div className="Etap" key={index}>
                                             <div className="comp">
-                                                <BsTrash3 className='DellComp' onClick={() => dellComp(index)} />
-                                                <input className='ves' type="text" value={selektEtaps[index].name} onChange={(e) => changeSelektEtap(index, e.target.value)} placeholder="Этап задачи" ></input>
+                                                <BsTrash3 className='DellEtap' onClick={() => dellComp(index)} />
+                                                <input className='inputEtzps' type="text" value={selektEtaps[index].name} onChange={(e) => changeSelektEtap(index, e.target.value)} placeholder="Этап задачи" ></input>
                                             </div>
                                         </div>
                                     ))}
@@ -249,10 +249,11 @@ export default function Createtask() {
                                     ))}
                                 </div>
                                 <AiOutlinePlusCircle className='AddComp' onClick={addParm} />
+                                */}
                                 <div className="butns">
                                     <button className='save-btn' onClick={() => saveActivTaske(index)}>Сохранить</button>
                                     <button className='del-btn  ' onClick={() => dellFaze(index)}>Удалить</button>
-                                </div> */}
+                                </div> 
 
                             </>
                         )}
@@ -260,9 +261,9 @@ export default function Createtask() {
                             <>
                                 <div className="stats">
                                     <div className="name" >{task[id].name}</div>
-                                    <div className="cplvoComp">Всего шагов - {task[id].etaps.length}</div>
+                                    {/* <div className="colvoZad">Всего шагов - {task[id].etaps.length}</div> */}
                                 </div>
-                                <GiSettingsKnobs className='SettingsFaz' onClick={() => sellectActivTaske(id)} />
+                                <GiSettingsKnobs className='SettingsTask' onClick={() => sellectActivTaske(id)} />
                             </>
                         )}
                     </div>

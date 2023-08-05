@@ -8,7 +8,8 @@
     justify-content: center;
     z-index: 1;
 
-    .faza {
+
+    .task {
         z-index: 2;
         background-color: $main-font-color;
         color: $primary-color;
@@ -27,17 +28,25 @@
         }
 
         .stats {
-            .cplvoComp {
+            .colvoZad {
                 font-size: $second-font-size;
             }
         }
 
-        .SettingsFaz {
+
+        .NameZad {
+            margin-bottom: 30px;
+        }
+
+        .SettingsTask {
             margin: 0 0 0 auto;
             cursor: pointer;
             border: 2px solid $primary-color;
             border-radius: 5px;
-            padding: 15.7px;
+            padding: 10px;
+            fill: black;
+            width: 60px !important;
+            height: 60px !important;
 
             &:hover {
                 background-color: #CCFFA5;
@@ -47,7 +56,9 @@
 
 
         .textdisc {
+            margin-top: 30px;
             margin-left: 30px;
+            margin: 30px 0px 30px 30px;
             color: $primary-color !important;
 
             span,
@@ -72,9 +83,10 @@
             }
         }
 
-        .selectKomponents {
+        .addEtaps {
+            margin: 30px 0 20px 0px;
 
-            .selektComp {
+            .Etap {
                 align-items: flex-start;
                 display: flex;
                 flex-direction: column;
@@ -89,13 +101,16 @@
                     width: 100%;
                     flex: 1;
 
-                    .DellComp {
+                    .DellEtap {
                         fill: #FF7474;
                         margin-right: 20px;
                         cursor: pointer;
                         border: 2px solid $primary-color;
                         border-radius: 5px;
-                        padding: 15.7px;
+                        padding: 10px;
+                        width: 60px !important;
+                        height: 60px !important;
+
                     }
 
 
@@ -128,13 +143,14 @@
 
 
 
-                    .ves {
+                    .inputEtzps {
                         border: 2px solid $primary-color !important;
                         margin: 0 0 0 20px;
                         text-align: center;
                         border-radius: 5px;
                         font-size: $second-font-size;
                         height: 60px;
+                        flex: 1;
                     }
 
                     p {
@@ -155,39 +171,6 @@
             margin: 0 auto 40px auto;
         }
 
-        .otherParms {
-
-            .otherParm {
-                align-items: flex-start;
-                display: flex;
-                flex-direction: column;
-                margin-bottom: 20px;
-                width: auto;
-                justify-content: left;
-
-                .parm {
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                    width: 100%;
-                    flex: 1;
-
-                    .DellParm {
-                        fill: #FF7474;
-                        margin-right: 20px;
-                        cursor: pointer;
-                        border: 2px solid $primary-color;
-                        border-radius: 5px;
-                        padding: 15.7px;
-                    }
-
-                    input {
-                        margin: 0;
-                        flex:1;
-                    }
-                }
-            }
-        }
 
         .butns {
             margin: 0 auto;
