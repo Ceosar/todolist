@@ -15,13 +15,11 @@ const ThemeSwitcher = ({ event }) => {
 
     setIsDarkTheme(parms);
 
-    if (isDarkTheme) {
+    if (parms) {
       localStorage.setItem('app-theme', 'dark');
     } else {
       localStorage.setItem('app-theme', 'light');
     }
-
-    console.log(isDarkTheme)
 
     if (event) {
       event()
@@ -42,19 +40,21 @@ const ThemeSwitcher = ({ event }) => {
 
   useEffect(() => {
 
-    const LokThemm = localStorage.getItem('app-theme');
+    const LocThemm = localStorage.getItem('app-theme');
 
-    if (LokThemm == "dark") {
-      setIsDarkTheme(false);
-    } else {
+
+
+    if (LocThemm == "dark") {
       setIsDarkTheme(true);
+    } else {
+      setIsDarkTheme(false);
     }
 
     const root = document.documentElement;
 
-    root.className = isDarkTheme ? "dark" : "light";
-    root.style.setProperty('--background-color', isDarkTheme ? '#333' : '#f0f0f0');
-    root.style.setProperty('--text-color', isDarkTheme ? '#f0f0f0' : '#333');
+    root.className = LocThemm == "dark" || LocThemm == undefined ? "dark" : "light";
+    root.style.setProperty('--background-color', LocThemm == "dark" || LocThemm == undefined ? '#333' : '#f0f0f0' );
+    root.style.setProperty('--text-color', LocThemm == "dark" || LocThemm == undefined ? '#f0f0f0' :  '#333');
   }, []);
 
   return (
