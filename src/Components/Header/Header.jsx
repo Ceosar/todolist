@@ -1,16 +1,12 @@
 import React from 'react'
 import './Header.scss'
 import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher'
-import { useNavigate } from "react-router-dom";
 
-
-export default function Header() {
-
-    let navigate = useNavigate();
+export default function Header({ setLoggin }) {
 
     const logginOut = () => {
         localStorage.removeItem('loggin')
-        navigate("/loggin/")
+        setLoggin(false);
     }
 
     return (

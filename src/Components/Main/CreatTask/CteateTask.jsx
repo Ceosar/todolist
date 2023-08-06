@@ -22,7 +22,6 @@ export default function Createtask() {
         if (activTask != -1) {
             saveActivTaske(activTask);
         }
-        console.log(task)
     }
 
 

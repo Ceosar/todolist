@@ -27,11 +27,7 @@ const routers = createBrowserRouter([
       {
         path: "texCarts",
         element: <h1>Tex Carts</h1>,
-      },
-      // {
-      //   path: "loggin",
-      //   element: <Auth />,
-      // }
+      }
     ],
   },
 

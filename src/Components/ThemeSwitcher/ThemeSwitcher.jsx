@@ -29,7 +29,6 @@ const ThemeSwitcher = ({ event }) => {
   // const handleThemeToggle = (parms) => {
   //   const root = document.documentElement;
 
-  //   console.log(parms)
 
   //   root.className = parms ? 'dark' : 'light';
   //   root.style.setProperty('--background-color', parms ? '#f0f0f0' : '#333');

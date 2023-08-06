@@ -14,11 +14,9 @@ function App() {
 
   let navigate = useNavigate();
 
-  // console.clear()
-
   useEffect(() => {
     let locLoggin = localStorage.getItem('loggin')
-    console.log(locLoggin == false)
+
     if (locLoggin == null || locLoggin == false) {
       setLoggin(false);
     } else {
@@ -27,12 +25,22 @@ function App() {
     if (!loggin) { navigate("/loggin/") }
   }, [])
 
+  useEffect(() => {
+    let locLoggin = localStorage.getItem('loggin')
+
+    if (locLoggin == null || locLoggin == false) {
+      setLoggin(false);
+    } else {
+      setLoggin(true);
+    }
+    if (!loggin) { navigate("/loggin/") }
+  }, [loggin])
 
   if (loggin) {
 
     return (
       <>
-        <Header />
+        <Header setLoggin={setLoggin} />
         <Main />
       </>
     )
