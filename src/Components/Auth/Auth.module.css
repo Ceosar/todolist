@@ -30,10 +30,10 @@ html[data-theme='dark'] {
     --placeholder-color: #e6e6e690;
 }
 
-.auth_section {
+.main{
     width: 100%;
     height: 100vh;
-    background: var(--background-image);
+    background: url('./../../assets/background-black.svg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -102,7 +102,7 @@ html[data-theme='dark'] {
 
 
     background: rgba(112, 112, 112, 0.1);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px) !important;
 }
 
 .auth_content {
@@ -155,7 +155,7 @@ html[data-theme='dark'] {
     border-radius: 10px;
     font-size: 14px;
     background-color: rgba(230, 230, 230, 0.4);
-    border: 1px solid #E6E6E6;
+    border: 1px solid var(--text-color);
 }
 
 .auth_warning_text {
@@ -178,6 +178,10 @@ html[data-theme='dark'] {
     font-weight: 900;
 }
 
+
+.main {
+    --background-image: url('./../../assets/background-black.svg') no-repeat center center fixed;
+}
 
 
 

@@ -40,11 +40,12 @@ const SignUp = props => {
     return (
         <motion.main
             initial="hidden"
+            key={props.theme}
             whileInView="visible"
             viewport={{ amount: 0.2, once: true }}
-            variants={authAnimation}
+            variants={props.authAnimationFromUp}
             custom={2}
-            className={classes.auth_main_container}
+            className="auth_main_container"
         >
             <motion.section
                 variants={authAnimation}

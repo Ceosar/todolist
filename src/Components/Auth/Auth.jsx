@@ -6,7 +6,7 @@ import SignIn from "./SignIn/SignIn";
 import classes from './Auth.module.css';
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 import { useNavigate } from "react-router-dom";
-
+import './Auth.scss'
 
 const Auth = ({ setLoggin }) => {
 
@@ -14,13 +14,15 @@ const Auth = ({ setLoggin }) => {
 
     const { theme, setTheme } = useTheme();
     const [auth, setAuth] = useState(0);
-    const [rerender, setRerender] = useState(true);
+    const [isAnimating, setIsAnimating] = useState(false);
+
+
 
 
     const handleThemeClick = () => {
-        setRerender(!rerender);
 
-        console.log(rerender)
+        // document.getElementsByClassName("main")[0].
+        setIsAnimating(!isAnimating)
         if (theme === 'light') {
             setTheme('dark');
         } else {
@@ -75,65 +77,34 @@ const Auth = ({ setLoggin }) => {
     }
 
     return (
-        <>
-            {rerender ? (
-                <section className="qwe">
-                    <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ amount: 0.2, once: true }}
-                        className={classes.auth_container}
+        <section className={"main " + theme}>
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ amount: 0.2, once: true }}
+                className={classes.auth_container}
+            >
+                <header className={classes.auth_header}>
+                    <motion.section
+                        variants={authAnimationFromUp}
+                        custom={9}
+                        className={classes.auth_language}
+                        onClick={() => { setLoggin(true); localStorage.setItem('loggin', true); }}
                     >
-                        <header className={classes.auth_header}>
-                            <motion.section
-                                variants={authAnimationFromUp}
-                                custom={9}
-                                className={classes.auth_language}
-                                onClick={() => { setLoggin(true); localStorage.setItem('loggin', true); }}
-                            >
-                                <button>RUS</button>
-                            </motion.section>
-                            <motion.div
-                                variants={authAnimationFromUp}
-                                custom={9}
-                            >
-                                <ThemeSwitcher event={handleThemeClick} />
-                            </motion.div>
-                        </header>
-                        {auth ? <SignUp setAuth={setAuth} /> : <SignIn setAuth={setAuth} />}
-
-                    </motion.div>
-                </section>
-            ) : (
-                <section className="qwe">
+                        <button>RUS</button>
+                    </motion.section>
                     <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ amount: 0.2, once: true }}
-                        className={classes.auth_container}
+                        variants={authAnimationFromUp}
+                        custom={9}
                     >
-                        <header className={classes.auth_header}>
-                            <motion.section
-                                variants={authAnimationFromUp}
-                                custom={9}
-                                className={classes.auth_language}
-                                onClick={() => { setLoggin(true); localStorage.setItem('loggin', true); }}
-                            >
-                                <button>RUS</button>
-                            </motion.section>
-                            <motion.div
-                                variants={authAnimationFromUp}
-                                custom={9}
-                            >
-                                <ThemeSwitcher event={handleThemeClick} />
-                            </motion.div>
-                        </header>
-                        {auth ? <SignUp setAuth={setAuth} /> : <SignIn setAuth={setAuth} />}
-
+                        <ThemeSwitcher event={handleThemeClick} />
                     </motion.div>
-                </section>
-            )}
-        </>
+                </header>
+                {auth ? <SignUp setAuth={setAuth} theme={theme} authAnimationFromUp={authAnimationFromUp} /> : <SignIn setAuth={setAuth} theme={theme} authAnimationFromUp={authAnimationFromUp} />}
+
+            </motion.div>
+        </section>
+
     );
 }
 
