@@ -6,7 +6,7 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    animation: fade1 1s;
+    animation: fade1 0.3s;
 
     .auth_main_container {
         // animation: fadeVinow 2.5s forwards;
@@ -90,10 +90,8 @@
     }
 
     &.light {
-        animation: fade 1s;
+        animation: fade 0.3s;
         background: url('./../../assets/background-light.svg') no-repeat center center fixed;
-        width: 100%;
-        height: 100vh;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
