@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import classes from './../Auth.module.css';
 
 const SignIn = props => {
-    console.log(props.theme);
+
     const handleReadyClick = () => {
         var email = document.getElementById('email');
         var password = document.getElementById('password');
