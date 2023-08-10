@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import "./CreaTask.scss"
+import "./CreateTask.scss"
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { AiOutlinePlusCircle } from 'react-icons/ai'
-import EditorToolbar, { modules, formats } from "./Editortoobar.jsx";
+import EditorToolbar, { modules, formats } from "./EditorToolBar.jsx";
 import { BsTrash3 } from 'react-icons/Bs';
 import { GiSettingsKnobs } from 'react-icons/gi'
 import Select from 'react-select';
 
-export default function Createtask() {
+export default function CreateTask() {
 
 
     const [task, settask] = useState({});

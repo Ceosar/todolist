@@ -1,0 +1,80 @@
+.menu_bar{
+    width: 50px;
+    height: 565px;
+    background-color: #D9D9D9;
+    border-radius: 60px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 10px 0;
+}
+
+.menu_up_side{
+    /* margin-top: 2px; */
+    background-color: #EEEEEE;
+    border-radius: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.menu_up_side button{
+    padding: 10px 2px;
+}
+
+.menu_up_side button:hover{
+    transition: all .4s;
+    background-color: grey;
+    border-radius: 50px;
+}
+
+.menu_down_side{
+    /* margin-bottom: 2px; */
+    background-color: #EEEEEE;
+    border-radius: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.menu_down_side button{
+    padding: 10px 2px;
+}
+
+.menu_down_side button:hover{
+    transition: all .4s;
+    background-color: grey;
+    border-radius: 50px;
+}
+
+.menu_section{
+    /* margin-top: 5px; */
+}
+
+.menu_btn{
+    width: 40px;
+    height: 40px;
+    padding: 10px 2px;
+    background-color: #EEEEEE;
+    border-radius: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    transition: all .4s;
+}
+
+.menu_btn:hover{
+    background-color: grey;
+}
+
+.line_menu{
+    width: 25px;
+    height: 2px;
+    color: black;
+    border: solid black 2px;
+    border-radius: 45px;
+}

@@ -8,7 +8,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Zad from './Components/Main/Zad/Zad.jsx';
-import CreateTexCart from "./Components/Main/CreatTask/CteateTask.jsx"
+import CreateTexCart from "./Components/Main/CreatTask/CreateTask.jsx"
 
 
 const routers = createBrowserRouter([
