@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 
 import "./App.scss"
+import MenuBar from './Components/MenuBar/MenuBar';
 
 function App() {
 
@@ -41,7 +42,10 @@ function App() {
     return (
       <>
         <Header setLoggin={setLoggin} />
-        <Main />
+        <div className='todo_menu'>
+          <MenuBar/>
+          <Main />
+        </div>
       </>
     )
 
