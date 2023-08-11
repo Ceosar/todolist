@@ -5,7 +5,7 @@ from django.contrib.auth.hashers import make_password
 class MuUsers(models.Model):
     email = models.CharField(max_length=100, verbose_name="Email", null=False, unique=True, blank=False)
     password = models.CharField(max_length=128, verbose_name="Password", null=False, blank=False)
-    phone = models.CharField(max_length=20, verbose_name="Phone", null=False, unique=True, blank=False)
+    phone = models.CharField(max_length=20, verbose_name="Phone", null=True, unique=True, blank=True)
     name = models.CharField(max_length=50, verbose_name="Имя", null=True, blank=True)
     soName = models.CharField(max_length=50, verbose_name="Фамилия", null=True, blank=True)
 
