@@ -9,8 +9,6 @@ import { GiSettingsKnobs } from 'react-icons/gi'
 import Select from 'react-select';
 
 export default function CreateTask() {
-
-
     const [task, settask] = useState({});
     const [activTask, setActivTask] = useState(-1);
     const [nameTask, setnameTask] = useState('');
@@ -75,6 +73,9 @@ export default function CreateTask() {
 
     };
 
+    useEffect(() => {
+        addTask()
+    }, [])
 
     const addTask = () => {
         let newtask = { ...task };

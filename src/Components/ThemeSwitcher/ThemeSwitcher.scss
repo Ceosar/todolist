@@ -1,44 +1,37 @@
 @import '../../Constants.scss';
 
 .theme-switcher {
-
     width: 80px;
-    border: 2px solid $main-font-color;
+    border: 3px solid $main-font-color;
     border-radius: 50px;
     height: 34px;
     display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
     align-items: center;
-    justify-content: center;
+    cursor: pointer;
+
+    &.light {
+        justify-content: flex-start;
+    }
+
+    &.dark {
+        justify-content: flex-end;
+    }
 
     .theme {
-        // position: relative;
-        // transition: left 0.5s !important;
-        // right: 1px;
-        height: 34px;
-        background-color: $main-font-color ;
-        border-radius: 50px;
-        width: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
+        width: 24px;
+        height: 24px;
+        margin: 4px;
 
         &.moon {
-            color: $primary-color;
             display: flex;
-            justify-content: center;
-            right: -27px;
+            align-items: center;
         }
 
         &.sun {
-            color: $primary-color;
+            display: flex;
+            align-items: center;
         }
     }
-
-    svg {
-        height: 24px !important;
-        width: 24px !important;
-
-    }
-
 }

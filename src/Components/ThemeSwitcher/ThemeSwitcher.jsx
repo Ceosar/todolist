@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { BsFillMoonStarsFill, BsSun } from 'react-icons/Bs'
 import './ThemeSwitcher.scss';
+
+import moon from "./../../assets/moon.svg"
+import sun from "./../../assets/sun.svg"
 
 const ThemeSwitcher = ({ event }) => {
   const [isDarkTheme, setIsDarkTheme] = useState(true);
 
   const handleThemeToggle = (parms) => {
-
-
     const root = document.documentElement;
     root.className = parms ? "dark" : "light";
     root.style.setProperty('--background-color', isDarkTheme ? '#f0f0f0' : '#333');
@@ -26,22 +26,8 @@ const ThemeSwitcher = ({ event }) => {
     }
   };
 
-  // const handleThemeToggle = (parms) => {
-  //   const root = document.documentElement;
-
-
-  //   root.className = parms ? 'dark' : 'light';
-  //   root.style.setProperty('--background-color', parms ? '#f0f0f0' : '#333');
-  //   root.style.setProperty('--text-color', parms ? '#333' : '#f0f0f0');
-  //   setIsDarkTheme(parms);
-  // };
-
-
   useEffect(() => {
-
     const LocThemm = localStorage.getItem('app-theme');
-
-
 
     if (LocThemm == "dark") {
       setIsDarkTheme(true);
@@ -52,17 +38,17 @@ const ThemeSwitcher = ({ event }) => {
     const root = document.documentElement;
 
     root.className = LocThemm == "dark" || LocThemm == undefined ? "dark" : "light";
-    root.style.setProperty('--background-color', LocThemm == "dark" || LocThemm == undefined ? '#333' : '#f0f0f0' );
-    root.style.setProperty('--text-color', LocThemm == "dark" || LocThemm == undefined ? '#f0f0f0' :  '#333');
+    root.style.setProperty('--background-color', LocThemm == "dark" || LocThemm == undefined ? '#333' : '#f0f0f0');
+    root.style.setProperty('--text-color', LocThemm == "dark" || LocThemm == undefined ? '#f0f0f0' : '#333');
   }, []);
 
   return (
-    <div className={`theme-switcher ${isDarkTheme ? 'dark' : 'light'}`}>
-      <div className={`theme ${isDarkTheme ? 'sun' : 'moon'}`} onClick={() => handleThemeToggle(!isDarkTheme)} >
+    <div className={`theme-switcher ${isDarkTheme ? 'dark' : 'light'}`} onClick={() => handleThemeToggle(!isDarkTheme)}>
+      <div className={`theme ${isDarkTheme ? 'sun' : 'moon'}`} >
         {isDarkTheme ? (
-          <BsSun className="icon" />
+          <img src={sun} alt="" />
         ) : (
-          <BsFillMoonStarsFill className="icon" />
+          <img src={moon} />
         )}
       </div>
     </div>

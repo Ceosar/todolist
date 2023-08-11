@@ -18,7 +18,7 @@ export default function Main() {
     return (
         <>
             <div className="main-contaner">
-                <NawButton />
+                {/* <NawButton /> */}
                 <Outlet />
             </div>
         </>

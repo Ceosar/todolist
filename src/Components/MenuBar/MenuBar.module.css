@@ -1,6 +1,6 @@
 .menu_bar{
     width: 50px;
-    height: 565px;
+    height: 487px;
     background-color: #D9D9D9;
     border-radius: 60px;
 
@@ -22,13 +22,18 @@
 }
 
 .menu_up_side .button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
     padding: 10px 2px;
 }
 
 .menu_up_side .button:hover{
     transition: all .4s;
-    background-color: grey;
-    border-radius: 50px;
+    background-color: rgba(177, 177, 177, 0.5);
+    border-radius: 50%;
 }
 
 .menu_down_side{
@@ -41,12 +46,17 @@
 }
 
 .menu_down_side .button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
     padding: 10px 2px;
 }
 
 .menu_down_side .button:hover{
     transition: all .4s;
-    background-color: grey;
+    background-color: rgba(177, 177, 177, 0.5);
     border-radius: 50px;
 }
 
@@ -68,7 +78,7 @@
 }
 
 .menu_btn:hover{
-    background-color: grey;
+    background-color: rgba(177, 177, 177, 0.5);
 }
 
 .line_menu{

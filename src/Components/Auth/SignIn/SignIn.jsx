@@ -7,7 +7,7 @@ const SignIn = props => {
     const handleReadyClick = () => {
         var email = document.getElementById('email');
         var password = document.getElementById('password');
-        var warningText = document.getElementsByClassName('auth-warning-text');
+        var warningText = document.getElementById('auth-warning-text');
 
         const contentOfWarningText =
             [
@@ -15,15 +15,16 @@ const SignIn = props => {
                 "Please enter Password!"
             ]
 
-        if (email.value === "") {
-            warningText[0].textContent = contentOfWarningText[0];
-            warningText[0].style.opacity = 1;
-        } else if (password.value === "") {
-            warningText[0].textContent = contentOfWarningText[1];
-            warningText[0].style.opacity = 1;
-        } else {
-            warningText[0].textContent = "none";
-            warningText[0].style.opacity = 0;
+        if (email.value == "") {
+            warningText.textContent = contentOfWarningText[0];
+            warningText.style.opacity = 1;
+        } else if (password.value == "" || passwordAgain.value == "") {
+            warningText.textContent = contentOfWarningText[1];
+            warningText.style.opacity = 1;
+        }
+        else {
+            warningText.textContent = "none";
+            warningText.style.opacity = 0;
         }
     }
 
@@ -58,7 +59,7 @@ const SignIn = props => {
                 </div>
                 <input id="email" placeholder="Email" />
                 <input type="password" id="password" placeholder="Password" />
-                <p className={classes.auth_warning_text}>none</p>
+                <p id="auth-warning-text" className={classes.auth_warning_text}>none</p>
                 <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
