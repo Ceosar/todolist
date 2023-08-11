@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "sB" : "cd .\\bacend && venv\\Scripts\\activate && python .\\manage.py runserver",
+    "m" : "cd .\\bacend && venv\\Scripts\\activate && python .\\manage.py makemigrations && python .\\manage.py migrate"
   },
   "dependencies": {
     "framer-motion": "^10.15.0",
