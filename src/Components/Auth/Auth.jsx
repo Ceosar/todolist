@@ -9,18 +9,13 @@ import { useNavigate } from "react-router-dom";
 import './Auth.scss'
 
 const Auth = ({ setLoggin }) => {
-
     let navigate = useNavigate();
 
     const { theme, setTheme } = useTheme();
     const [auth, setAuth] = useState(0);
     const [isAnimating, setIsAnimating] = useState(false);
 
-
-
-
     const handleThemeClick = () => {
-
         // document.getElementsByClassName("main")[0].
         setIsAnimating(!isAnimating)
         if (theme === 'light') {

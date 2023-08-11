@@ -1,50 +1,157 @@
 @import '../../../Constants.scss';
 
-
-.resept {
-    border-radius: 30px;
-    padding: 40px 20px;
-    margin-top: 70px;
+.tasks_wrapper {
+    margin: 0 auto;
+    width: 1270px;
     display: flex;
-    justify-content: left;
-    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    .resept {
+        width: 302px;
+        height: 302px;
+        border-radius: 30px;
+        background-color: $main-font-color;
+        color: $primary-color;
+
+
+        // .icon {
+        //     // height: 50px;
+        //     // width: 50px;
+        //     // margin-right: 40px;
+        //     // fill: $primary-color;
+        //     // stroke-width: 1px;
+
+        //     // &.ok {
+        //     //     fill: #6BFF35;
+        //     //     ;
+        //     // }
+
+        //     // &.error {
+        //     //     fill: #FF7474;
+        //     // }
+
+        //     // &.work {
+        //     //     fill: #FFB72B;
+        //     // }
+
+        // }
+        .block_ok {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+
+            .up_ok_block {
+                padding:  0 0 0 25px;
+                display: flex;
+                justify-content: space-between;
+
+                .right_up_ok_block {
+                    width: 40px;
+                    height: 139px;
+                    background-color: #80FFBA;
+                    border-radius: 1px 30px 1px 1px;
+                }
+            }
+        }
+
+        .block_work {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+
+            .up_work_block {
+                padding:  0 0 0 25px;
+                display: flex;
+                justify-content: space-between;
+
+                .right_up_work_block {
+                    width: 40px;
+                    height: 139px;
+                    background-color: #2BBFFF;
+                    border-radius: 1px 30px 1px 1px;
+                }
+            }
+        }
+
+        .block_nowork {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+
+            .up_nowork_block {
+                padding:  0 0 0 25px;
+                display: flex;
+                justify-content: space-between;
+
+                .right_up_nowork_block {
+                    width: 40px;
+                    height: 139px;
+                    background-color: #6046FF;
+                    border-radius: 1px 30px 1px 1px;
+                }
+            }
+        }
+
+        // .text {
+        //     display: flex;
+        //     justify-content: left;
+        //     flex-direction: column;
+
+        //     .title {
+        //         color: $primary-color;
+        //     }
+
+        //     .status {
+        //         color: $primary-color;
+        //         font-size: $second-font-size;
+        //     }
+        // }
+    }
+}
+
+.num_of_block {
+    padding: 20px 0 0 0;
+    font-family: $main-font;
+    font-weight: 500;
+    font-size: 57px;
+}
+
+.name_of_block {
+    width: 177px;
+    font-family: $main-font;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.down_of_block{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.status {
+    padding: 0 0 0 25px;
+    font-family: $second-font;
+    font-weight: 400;
+    font-size: 18px;
+    display: flex;
+    gap: 10px;
+}
+
+.information_block{
+    font-family: $second-font;
+    font-size: 18px;
+    display: flex;
     flex-direction: row;
-    background-color: $main-font-color;
+    justify-content: space-around;
+    align-items: center;
+}
 
-    .icon {
-        height: 50px;
-        width: 50px;
-        margin-right: 40px;
-        fill: $primary-color;
-        stroke-width: 1px;
+.time_create{
+    width: 70px;
+}
 
-        &.ok {
-            fill: #6BFF35;;
-        }
-
-        &.error{
-            fill: #FF7474;
-        }
-
-        &.work {
-            fill: #FFB72B;
-        }
-
-    }
-
-    .text {
-
-        display: flex;
-        justify-content: left;
-        flex-direction: column;
-
-        .title {
-            color: $primary-color;
-        }
-
-        .status {
-            color: $primary-color;
-            font-size: $second-font-size;
-        }
-    }
+.star{
+    width: 70px;
 }
