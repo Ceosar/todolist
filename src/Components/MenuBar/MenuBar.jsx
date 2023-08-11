@@ -4,6 +4,7 @@ import icon_idea from './../../assets/icon_idea.svg'
 import icon_profile from './../../assets/icon_profile.svg'
 import icon_plus from './../../assets/icon_plus.svg'
 import icon_trash from './../../assets/icon_trash.svg'
+import { NavLink } from "react-router-dom"
 
 const MenuBar = () => {
     return (
@@ -18,26 +19,26 @@ const MenuBar = () => {
                 </button>
             </section>
             <section className={classes.menu_up_side}>
-                <button>
+                <NavLink className={classes.button}>
                     <img src={icon_home} alt="" />
-                </button>
-                <button>
+                </NavLink>
+                <NavLink className={classes.button}>
                     <img src={icon_idea} alt="" />
-                </button>
-                <button>
+                </NavLink>
+                <NavLink className={classes.button}>
                     <img src={icon_profile} alt="" />
-                </button>
-                <button>
+                </NavLink>
+                <NavLink className={classes.button}>
                     <img src={icon_home} alt="" />
-                </button>
+                </NavLink>
             </section>
             <section className={classes.menu_down_side}>
-                <button>
+                <NavLink className={classes.button}>
                     <img src={icon_plus} alt="" />
-                </button>
-                <button>
+                </NavLink>
+                <NavLink className={classes.button}>
                     <img src={icon_trash} alt="" />
-                </button>
+                </NavLink>
             </section>
         </div>
     );

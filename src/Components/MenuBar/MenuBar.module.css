@@ -21,11 +21,11 @@
     gap: 35px;
 }
 
-.menu_up_side button{
+.menu_up_side .button{
     padding: 10px 2px;
 }
 
-.menu_up_side button:hover{
+.menu_up_side .button:hover{
     transition: all .4s;
     background-color: grey;
     border-radius: 50px;
@@ -40,11 +40,11 @@
     gap: 35px;
 }
 
-.menu_down_side button{
+.menu_down_side .button{
     padding: 10px 2px;
 }
 
-.menu_down_side button:hover{
+.menu_down_side .button:hover{
     transition: all .4s;
     background-color: grey;
     border-radius: 50px;
