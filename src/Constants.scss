@@ -1,12 +1,15 @@
+// @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
+// font-family: 'Montserrat', sans-serif;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+// font-family: 'Roboto', sans-serif;
 
 $primary-color: var(--background-color);
 $main-font-color : var(--text-color);
-$main-font-size:30px;
-$second-font-size:22px;
-$header-top  : 60px;
+$main-font-size: 30px;
+$second-font-size: 22px;
+$header-top : 60px;
 $header-marg: 70px;
-$main-font : Inter;
-
+$main-font : 'Montserrat', sans-serif;
+$second-font: 'Roboto', sans-serif;

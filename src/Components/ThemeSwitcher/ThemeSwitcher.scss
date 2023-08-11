@@ -8,11 +8,12 @@
     height: 34px;
     display: flex;
     align-items: center;
+    justify-content: center;
 
     .theme {
-        position: relative;
-        transition: right 0.5s !important;
-        right: 1px;
+        // position: relative;
+        // transition: left 0.5s !important;
+        // right: 1px;
         height: 34px;
         background-color: $main-font-color ;
         border-radius: 50px;
@@ -24,6 +25,8 @@
 
         &.moon {
             color: $primary-color;
+            display: flex;
+            justify-content: center;
             right: -27px;
         }
 

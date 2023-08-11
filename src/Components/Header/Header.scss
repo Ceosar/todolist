@@ -1,24 +1,18 @@
 @import '../../Constants.scss';
 
 .header-contaner {
+    margin: 55px auto;
+    width: 90%;
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 50px;
-    justify-content: space-around;
-    margin-top: 55px;
-    margin-bottom: 55px;
-    // height: 90px;
-    // border-bottom: 2px solid $main-font-color;
-    font-size: $main-font-size;
+    justify-content: space-between;
+    font-size: 32px;
     color: #FFF;
     font-family: $main-font;
-    font-size: $main-font-size;
-    font-style: normal;
     font-weight: 400;
-    line-height: normal;
 
-    .header-properties{
+    .header-properties {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -27,9 +21,6 @@
     }
 
     .logo {
-        // position: absolute;
-        // top: $header-top;
-        // left: $header-marg;
         color: $main-font-color;
 
         path {
@@ -53,18 +44,18 @@
         color: $main-font-color;
     }
 
-    .language-place button {
+    .language-place {
+        font-family: $main-font;
+        font-weight: 500;
         font-size: 30px;
+        transition: background-size .4s;
         text-decoration: none;
         background-image: linear-gradient(currentColor, currentColor);
         background-position: 0% 100%;
         background-repeat: no-repeat;
         background-size: 0% 2px;
-        transition: background-size .4s;
+        &:hover{
+            background-size: 100% 2px;
+        }
     }
-
-    .language-place button:hover {
-        background-size: 100% 2px;
-    }
-
 }
