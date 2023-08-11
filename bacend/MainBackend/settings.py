@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "toDoList",
+    "MuUsers"
 ]
 
 MIDDLEWARE = [
@@ -73,12 +77,17 @@ WSGI_APPLICATION = 'MainBackend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+DATABASE_URL = "postgres://Colobok2002:2ptofqrdPL3Q@ep-restless-breeze-43937413.us-east-2.aws.neon.tech/neondb"
+
+
+DATABASES = {'default': dj_database_url.parse(DATABASE_URL)}
+
 
 
 # Password validation
