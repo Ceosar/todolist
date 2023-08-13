@@ -166,7 +166,7 @@ export default function CreateTask() {
     };
 
     return (
-        <>
+        <div className='create_task_wrapper'>
             <div className='add-contaner'>
                 {Object.keys(task).map((id, index) => (
 
@@ -251,6 +251,6 @@ export default function CreateTask() {
             </div >
             {Object.keys(task).length > 0 && (<button className="saveTask" onClick={saveTask}>Сохранить</button>)}
 
-        </>
+        </div>
     )
 }

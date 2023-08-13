@@ -1,4 +1,4 @@
-import classes from "./MenuBar.module.css"
+import "./MenuBar.scss"
 import icon_home from './../../assets/icon_home.svg'
 import icon_idea from './../../assets/icon_idea.svg'
 import icon_profile from './../../assets/icon_profile.svg'
@@ -10,10 +10,10 @@ import { NavLink } from "react-router-dom"
 
 const MenuBar = () => {
     return (
-        <div className={classes.menu_bar}>
-            <section className={classes.menu_section}>
+        <div className="menu_bar">
+            <section className="menu_section">
                 <button>
-                    <div className={classes.menu_btn}>
+                    <div className='menu_btn'>
                         {/* <div className={classes.line_menu}></div>
                         <div className={classes.line_menu}></div>
                         <div className={classes.line_menu}></div> */}
@@ -21,25 +21,25 @@ const MenuBar = () => {
                     </div>
                 </button>
             </section>
-            <section className={classes.menu_up_side}>
-                <NavLink className={classes.button}>
+            <section className='menu_up_side'>
+                <NavLink className='button'>
                     <img src={icon_home} alt="" />
                 </NavLink>
-                <NavLink className={classes.button} to="/zad">
+                <NavLink className="button" to="/zad">
                     <img src={icon_idea} alt="" />
                 </NavLink>
-                <NavLink className={classes.button}>
+                <NavLink className="button">
                     <img src={icon_profile} alt="" />
                 </NavLink>
-                <NavLink className={classes.button}>
+                <NavLink className="button">
                     <img src={icon_exit} alt="" />
                 </NavLink>
             </section>
-            <section className={classes.menu_down_side}>
-                <NavLink className={classes.button} to="/add">
+            <section className="menu_down_side">
+                <NavLink className="button" to="/add">
                     <img src={icon_plus} alt="" />
                 </NavLink>
-                <NavLink className={classes.button}>
+                <NavLink className="button">
                     <img src={icon_trash} alt="" />
                 </NavLink>
             </section>

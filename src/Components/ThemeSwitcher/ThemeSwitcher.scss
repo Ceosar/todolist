@@ -13,10 +13,12 @@
 
     &.light {
         justify-content: flex-start;
+        --back-image: url(./assets/background_tasks_light.jpg);
     }
 
     &.dark {
         justify-content: flex-end;
+        --back-image: url(./assets/background_tasks_dark.jpg);
     }
 
     .theme {

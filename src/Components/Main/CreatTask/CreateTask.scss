@@ -1,5 +1,11 @@
 @import '../../../Constants.scss';
 
+.create_task_wrapper{
+    width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
 
 .add-contaner {
     margin-top: 100px;
@@ -7,12 +13,14 @@
     flex-direction: column;
     justify-content: center;
     z-index: 1;
+    transition: block .4s;
 
 
     .task {
         z-index: 2;
-        background-color: $main-font-color;
-        color: $primary-color;
+        background-color:$primary-color;
+        color: $main-font-color;
+        border: 3px solid $main-font-color;
         margin-bottom: 30px;
         border-radius: 30px;
         padding: 30px 20px;
@@ -41,10 +49,10 @@
         .SettingsTask {
             margin: 0 0 0 auto;
             cursor: pointer;
-            border: 2px solid $primary-color;
+            border: 2px solid $main-font-color;
             border-radius: 5px;
             padding: 10px;
-            fill: $primary-color;
+            fill: $main-font;
             width: 60px !important;
             height: 60px !important;
 
@@ -271,14 +279,15 @@
 .saveTask {
     margin: 50px auto;
     width: 400px;
-    background-color: $main-font-color;
+    background-color: $primary-color;
     font-family: $main-font;
     font-size: $main-font-size;
     border-radius: px;
     border-radius: 20px;
     padding: 10px 20px;
     text-align: center;
-    color: $primary-color ;
+    color: $main-font-color ;
+    border: 3px solid $main-font-color;
 
     &:hover {
         background-color: #CCFFA5;

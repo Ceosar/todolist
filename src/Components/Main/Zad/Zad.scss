@@ -8,12 +8,13 @@
     gap: 20px;
 
     .resept {
+        backdrop-filter: blur(1px);
         width: 302px;
         height: 302px;
-        border-radius: 30px;
-        background-color: $main-font-color;
-        color: $primary-color;
-
+        border-radius: 35px;
+        background-color: $primary-color;
+        color: $main-font-color;
+        border: 3px solid $main-font-color;
 
         // .icon {
         //     // height: 50px;
@@ -36,6 +37,7 @@
         //     // }
 
         // }
+
         .block_ok {
             display: flex;
             flex-direction: column;
@@ -150,6 +152,11 @@
 
 .time_create{
     width: 70px;
+}
+
+.border{
+    height: 25px;
+    border: 1px solid rgba(128, 128, 128, 0.481);
 }
 
 .star{
